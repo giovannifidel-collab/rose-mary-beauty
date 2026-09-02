@@ -1,0 +1,9 @@
+{
+  "format": "PFARMA_CI_BUNDLE_V2",
+  "algorithm": "AES-256-GCM",
+  "parts": 7,
+  "bundle_bytes": 40915,
+  "bundle_sha256": "3bd939d6c343fbc3cb4169df4b12566ec6fc71739daa7cd510c66614adbb408a",
+  "source_ref": "55cef6d068138ae70123f4dfa2d6d177abd99287",
+  "plaintext_sha256": "f4efb5baf302892a6ba9d605a720ca513d6b9cc3a48e4596983470dad7787b5c"
+}
