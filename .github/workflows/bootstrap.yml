@@ -1,0 +1,26 @@
+name: Rose&Mary Public Boundary
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rose-mary-public-boundary-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject unexpected public files
+        run: python tools/validate_public_repo.py
+      - name: Install pinned authenticated encryption dependency
+        run: python -m pip install --disable-pip-version-check 'cryptography==46.0.4'
+      - name: Prove encrypted-bundle transport
+        run: python tools/test_public_ci_bundle.py
