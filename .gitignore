@@ -1,0 +1,8 @@
+.env*
+.dev.vars*
+.decrypted/
+node_modules/
+dist/
+.wrangler/
+*.key
+*.pem
